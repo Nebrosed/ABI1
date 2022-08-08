@@ -94,6 +94,93 @@ public class App {
         cp = new String[bd.length][8];
         //System.out.println(bd.length);
 
+        /*
+         * 
+         * 
+         * etape 4
+         * 
+         * 
+         * 
+         */
+
+        k = 0; // variable pour placer la ligne dans le tableau bd
+        n = 0; // variable du nombre de point consecutif
+        tempo = 0.0;
+
+        tempo = Double.valueOf(BD[ligne[0]][4]);
+        //System.out.print(ligne[0]);
+        //System.out.print(" - ");
+        //System.out.println(tempo);  
+        n = 0;
+
+        for (int i = 1; i < bd.length; i ++){
+            if ((Double.valueOf(BD[ligne[i]][4]) - 0.4) < tempo & (Double.valueOf(BD[ligne[i]][4]) + 0.4) > tempo & ligne[i] == ligne[i - 1] + 1){
+                    n = n + 1;
+                    tempo = Double.valueOf(BD[ligne[i]][4]);
+                    //System.out.print(ligne[i]-1);
+                    //System.out.print(" - ");
+                    //System.out.print(BD[ligne[i]-1][4]);
+                    //System.out.print(" - ");
+                    //System.out.print(ligne[i]);
+                    //System.out.print(" - ");
+                    //System.out.println(tempo);
+            }
+            else {
+                if (n > 4){                    
+                        bd[k][0] = ligne[i-1];  
+                        bd[k][1] = n;      
+                        //System.out.print(bd[k][0]);
+                        //System.out.print(" - ");
+                        //System.out.print(bd[k][1]);   
+                        //System.out.print(" - ");
+                        //System.out.println(k);           
+                        k = k + 1;
+                        tempo = Double.valueOf(BD[ligne[i]][4]);
+                        n = 1;              
+                }
+                tempo = Double.valueOf(BD[ligne[i]][4]);
+                n = 1;    
+            }
+            
+        } 
+        CP = new int[bd.length][2];
+
+        /*
+         * 
+         * 
+         * 
+         * etape 5
+         * 
+         * 
+         */
+
+        n = 1; // variable du nombre de point consecutif
+        k = 0;
+        
+        for (int j = 0; j < CP.length; j ++){
+        
+            for (int i = 0; i < 10; i ++){
+            
+                if ((Double.valueOf(BD[bd[j][0]+i][4]) > 3.9) & (Double.valueOf(BD[bd[j][0]+i][4]) < 5.1)){
+                    n = n + 1;
+                    if (n > 2){                    
+                        CP[k][0] = bd[j][0]; 
+                        CP[k][1] = bd[j][1];           
+                        k = k + 1;
+                        i = 10;
+                        System.out.print(CP[k - 1][0]);
+                        System.out.print(" - ");
+                        System.out.println(k - 1);
+                    }
+                }
+                else {
+                    n = 1;
+                }
+
+            }  
+            
+        }
+
     }
 
 }
