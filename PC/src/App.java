@@ -143,7 +143,7 @@ public class App {
             }
             
         } 
-        CP = new int[bd.length][2];
+        CP = new int[k][2];
 
         /*
          * 
@@ -156,7 +156,7 @@ public class App {
 
         n = 1; // variable du nombre de point consecutif
         k = 0;
-        
+
         for (int j = 0; j < CP.length; j ++){
         
             for (int i = 0; i < 10; i ++){
@@ -169,6 +169,8 @@ public class App {
                         k = k + 1;
                         i = 10;
                         System.out.print(CP[k - 1][0]);
+                        System.out.print(" - ");
+                        System.out.print(CP[k - 1][1]);
                         System.out.print(" - ");
                         System.out.println(k - 1);
                     }
