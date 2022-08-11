@@ -172,11 +172,13 @@ public class App {
                         CP[k][1] = bd[j][1];  
                         k = k + 1;
                         i = 10;
-                        System.out.print(CP[k - 1][0]);
-                        System.out.print(" - ");
-                        System.out.print(CP[k - 1][1]);
-                        System.out.print(" - ");
-                        System.out.println(k - 1);
+                        //System.out.print(BD[bd[j][0]][4]);
+                        //System.out.print(" - ");
+                        //System.out.print(CP[k - 1][0]);
+                        //System.out.print(" - ");
+                        //System.out.print(CP[k - 1][1]);
+                        //System.out.print(" - ");
+                        //System.out.println(k - 1);
                     }
                 }
                 else {
@@ -197,28 +199,37 @@ public class App {
          */
         
         for (int j = 0; j < k; j ++){
-        
+
+            //System.out.print(BD[CP[j][0] - 1][4]);
+            //System.out.print(" - ");
+            //System.out.println(j);
+
             for (int i = 0; i < 8; i ++){
             
-                if ((Double.valueOf(BD[CP[j][0]+i][4]) > A[i][2] - 0.5) & (Double.valueOf(BD[CP[j][0]+i][4]) < A[i][2] + 0.5)){                  
+                if ((Double.valueOf(BD[CP[j][0] - 1][4]) > A[i][2] - 0.5305) & (Double.valueOf(BD[CP[j][0] - 1][4]) <= A[i][2] + 0.5305)){                  
                     cp[j][0] = String.valueOf(A[i][0]); // numero de l<anode
+                        System.out.print(j);
+                        System.out.print(" - ");  
                         System.out.print(cp[j][0]);
-                        System.out.print(" - ");                   
-                    /*cp[j][1] = String.valueOf(CP[j][0]); // numero de la ligne
+                        System.out.print(" - ");                  
+                    cp[j][1] = String.valueOf(CP[j][0]); // numero de la ligne
                         System.out.print(cp[j][1]);
                         System.out.print(" - ");
-                    cp[j][2] = String.valueOf(CP[j][1]); // nombre de temps passer a l<anode
+                    cp[j][2] = String.valueOf(CP[j][1] * 5); // nombre de temps passer a l<anode
                         System.out.print(cp[j][2]);
-                        System.out.print(" - ");
+                        System.out.print("sec - ");
                     cp[j][3] = BD[Integer.valueOf(CP[j][0])][6]; // timestamp
                         System.out.println(cp[j][3]);
 
-                    i = 8;*/
+                    i = 8;
                     //System.out.print(CP[k - 1][0]);
                     //System.out.print(" - ");
                     //System.out.println(k - 1);
                 }
-                
+                else {
+                    //System.out.print(BD[CP[j][0]+i][4]);
+                    //System.out.println(" - ");
+                }
             }
 
         }
