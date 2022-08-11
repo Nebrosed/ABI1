@@ -48,7 +48,7 @@ public class App {
         ///workspace/ABI1/PC/DETECTION_DATA_ANODES2.txt
         //PC/DETECTION_DATA_ANODES2.txt
 
-        File file = new File("PC/DETECTION_DATA_ANODES3.txt");
+        File file = new File("PC/DETECTION_DATA_ANODES3.csv");
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             while ((st = br.readLine()) != null){
                 size = size + 1;
@@ -200,7 +200,7 @@ public class App {
 
         //FileWriter fw = new FileWriter("PC/DETECTION_DATA_ANODES2.txt");
 
-        String fileName = "PC/DETECTION_DATA_ANODES2.txt";
+        String fileName = "PC/DETECTION_DATA_ANODES2.csv";
         String encoding = "UTF-8";
         PrintWriter writer = new PrintWriter(fileName, encoding);
 
@@ -223,7 +223,7 @@ public class App {
                     cp[j][0] = String.valueOf(A[i][0]); // numero de l<anode
                         //System.out.print(j);
                         //System.out.print(" - ");  
-                        writer.print(cp[j][0]);
+                        writer.print(cp[j][0]+" - "+A[i][1]);
                         writer.print(",");                  
                     cp[j][1] = String.valueOf(BD[CP[j][0]-1][5]); // nom de la location
                         writer.print(cp[j][1]);
