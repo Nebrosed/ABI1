@@ -48,7 +48,7 @@ public class App {
         ///workspace/ABI1/PC/DETECTION_DATA_ANODES2.txt
         //PC/DETECTION_DATA_ANODES2.txt
 
-        File file = new File("DETECTION_DATA_ANODES3.txt);
+        File file = new File("DETECTION_DATA_ANODES3.txt");
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             while ((st = br.readLine()) != null){
                 size = size + 1;
@@ -165,9 +165,9 @@ public class App {
         
             for (int i = 0; i < 10; i ++){
             
-                if ((Double.valueOf(BD[bd[j][0]+i][4]) > 3.9) & (Double.valueOf(BD[bd[j][0]+i][4]) < 5.1)){
+                if ((Double.valueOf(BD[bd[j][0]+i][4]) > 3.8) & (Double.valueOf(BD[bd[j][0]+i][4]) < 5.2)){
                     n = n + 1;
-                    if (n > 2){                    
+                    if (n > 1){                    
                         CP[k][0] = bd[j][0];
                         CP[k][1] = bd[j][1];  
                         k = k + 1;
@@ -197,6 +197,19 @@ public class App {
          * etape 6
          * 
          */
+
+        //FileWriter fw = new FileWriter("PC/DETECTION_DATA_ANODES2.txt");
+
+        String fileName = "PC/DETECTION_DATA_ANODES2.txt";
+        String encoding = "UTF-8";
+        PrintWriter writer = new PrintWriter(fileName, encoding);
+
+                        writer.print("anode_number,");  
+                        writer.print("location_name,");    
+                        writer.print("scope_time,");  
+                        writer.print("timestamp,");    
+                        writer.println("line_number,");  
+
         
         for (int j = 0; j < k; j ++){
 
@@ -208,21 +221,21 @@ public class App {
             
                 if ((Double.valueOf(BD[CP[j][0] - 1][4]) > A[i][2] - 0.5305) & (Double.valueOf(BD[CP[j][0] - 1][4]) <= A[i][2] + 0.5305)){                  
                     cp[j][0] = String.valueOf(A[i][0]); // numero de l<anode
-                        System.out.print(j);
-                        System.out.print(" - ");  
-                        System.out.print(cp[j][0]);
-                        System.out.print(" - ");                  
+                        //System.out.print(j);
+                        //System.out.print(" - ");  
+                        writer.print(cp[j][0]);
+                        writer.print(",");                  
                     cp[j][1] = String.valueOf(BD[CP[j][0]-1][5]); // nom de la location
-                        System.out.print(cp[j][1]);
-                        System.out.print(" - ");
+                        writer.print(cp[j][1]);
+                        writer.print(",");
                     cp[j][2] = String.valueOf(CP[j][1] * 5); // nombre de temps passer a l<anode
-                        System.out.print(cp[j][2]);
-                        System.out.print("sec - ");
+                        writer.print(cp[j][2]);
+                        writer.print("sec,");
                     cp[j][3] = BD[Integer.valueOf(CP[j][0])][6]; // timestamp
-                        System.out.print(cp[j][3]);
-                        System.out.print(" - ");
-                    cp[j][1] = String.valueOf(CP[j][0]); // numero de la ligne
-                        System.out.println(cp[j][1]);
+                        writer.print(cp[j][3]);
+                        writer.print(",");
+                    cp[j][4] = String.valueOf(CP[j][0]); // numero de la ligne
+                        writer.println(cp[j][4]);
 
                     i = 8;
                 }
@@ -230,7 +243,18 @@ public class App {
             }
 
         }
+        writer.close();
 
+        /*
+         * 
+         * 
+         * 
+         * 
+         * 
+         * etape 7
+         */
+
+        
     }
 
 }
