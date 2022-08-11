@@ -55,7 +55,7 @@ public class App {
             }
         }
         //System.out.println(size);
-        BD = new String[(size)][8];
+        BD = new String[(size)][8]; // tableau 
         ligne = new int[(size)];
 
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {        
