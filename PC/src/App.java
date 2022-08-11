@@ -48,7 +48,7 @@ public class App {
         ///workspace/ABI1/PC/DETECTION_DATA_ANODES2.txt
         //PC/DETECTION_DATA_ANODES2.txt
 
-        File file = new File("PC/DETECTION_DATA_ANODES2.txt");
+        File file = new File("DETECTION_DATA_ANODES3.txt);
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             while ((st = br.readLine()) != null){
                 size = size + 1;
@@ -212,24 +212,21 @@ public class App {
                         System.out.print(" - ");  
                         System.out.print(cp[j][0]);
                         System.out.print(" - ");                  
-                    cp[j][1] = String.valueOf(CP[j][0]); // numero de la ligne
+                    cp[j][1] = String.valueOf(BD[CP[j][0]-1][5]); // nom de la location
                         System.out.print(cp[j][1]);
                         System.out.print(" - ");
                     cp[j][2] = String.valueOf(CP[j][1] * 5); // nombre de temps passer a l<anode
                         System.out.print(cp[j][2]);
                         System.out.print("sec - ");
                     cp[j][3] = BD[Integer.valueOf(CP[j][0])][6]; // timestamp
-                        System.out.println(cp[j][3]);
+                        System.out.print(cp[j][3]);
+                        System.out.print(" - ");
+                    cp[j][1] = String.valueOf(CP[j][0]); // numero de la ligne
+                        System.out.println(cp[j][1]);
 
                     i = 8;
-                    //System.out.print(CP[k - 1][0]);
-                    //System.out.print(" - ");
-                    //System.out.println(k - 1);
                 }
-                else {
-                    //System.out.print(BD[CP[j][0]+i][4]);
-                    //System.out.println(" - ");
-                }
+                
             }
 
         }
