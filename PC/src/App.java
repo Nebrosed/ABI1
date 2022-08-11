@@ -43,8 +43,12 @@ public class App {
         String st;
         String[] mots = null;
         int size = 0; 
-        
-        File file = new File("DETECTION_DATA_ANODES2.txt");
+        //https://github.com/Nebrosed/ABI1/blob/ef5b82968537c1d85728f105f441b8840e3fd16a/PC/DETECTION_DATA_ANODES2.txt
+        //https://github.com/Nebrosed/ABI1/blob/main/PC/DETECTION_DATA_ANODES2.txt
+        ///workspace/ABI1/PC/DETECTION_DATA_ANODES2.txt
+        //PC/DETECTION_DATA_ANODES2.txt
+
+        File file = new File("PC/DETECTION_DATA_ANODES2.txt");
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             while ((st = br.readLine()) != null){
                 size = size + 1;
@@ -164,8 +168,8 @@ public class App {
                 if ((Double.valueOf(BD[bd[j][0]+i][4]) > 3.9) & (Double.valueOf(BD[bd[j][0]+i][4]) < 5.1)){
                     n = n + 1;
                     if (n > 2){                    
-                        CP[k][0] = bd[j][0]; 
-                        CP[k][1] = bd[j][1];           
+                        CP[k][0] = bd[j][0];
+                        CP[k][1] = bd[j][1];  
                         k = k + 1;
                         i = 10;
                         System.out.print(CP[k - 1][0]);
@@ -181,6 +185,42 @@ public class App {
 
             }  
             
+        }
+
+        /*
+         * 
+         * 
+         * 
+         * 
+         * etape 6
+         * 
+         */
+        
+        for (int j = 0; j < k; j ++){
+        
+            for (int i = 0; i < 8; i ++){
+            
+                if ((Double.valueOf(BD[CP[j][0]+i][4]) > A[i][2] - 0.5) & (Double.valueOf(BD[CP[j][0]+i][4]) < A[i][2] + 0.5)){                  
+                    cp[j][0] = String.valueOf(A[i][0]); // numero de l<anode
+                        System.out.print(cp[j][0]);
+                        System.out.print(" - ");                   
+                    /*cp[j][1] = String.valueOf(CP[j][0]); // numero de la ligne
+                        System.out.print(cp[j][1]);
+                        System.out.print(" - ");
+                    cp[j][2] = String.valueOf(CP[j][1]); // nombre de temps passer a l<anode
+                        System.out.print(cp[j][2]);
+                        System.out.print(" - ");
+                    cp[j][3] = BD[Integer.valueOf(CP[j][0])][6]; // timestamp
+                        System.out.println(cp[j][3]);
+
+                    i = 8;*/
+                    //System.out.print(CP[k - 1][0]);
+                    //System.out.print(" - ");
+                    //System.out.println(k - 1);
+                }
+                
+            }
+
         }
 
     }
