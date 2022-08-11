@@ -48,7 +48,7 @@ public class App {
         ///workspace/ABI1/PC/DETECTION_DATA_ANODES2.txt
         //PC/DETECTION_DATA_ANODES2.txt
 
-        File file = new File("DETECTION_DATA_ANODES3.txt");
+        File file = new File("PC/DETECTION_DATA_ANODES3.txt");
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             while ((st = br.readLine()) != null){
                 size = size + 1;
