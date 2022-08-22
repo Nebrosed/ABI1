@@ -1,5 +1,7 @@
 import java.io.*;
 import java.nio.file.*;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
 
 public class App {
 
@@ -158,34 +160,50 @@ public class App {
          * 
          */
 
-        n = 1; // variable du nombre de point consecutif
+        n = 0; // variable du nombre de point consecutif
         k = 0;
+        int z = 0;
 
         for (int j = 0; j < CP.length; j ++){
         
             for (int i = 0; i < 10; i ++){
             
                 if ((Double.valueOf(BD[bd[j][0]+i][4]) > 3.8) & (Double.valueOf(BD[bd[j][0]+i][4]) < 5.2)){
-                    n = n + 1;
-                    if (n > 1){                    
-                        CP[k][0] = bd[j][0];
-                        CP[k][1] = bd[j][1];  
-                        k = k + 1;
-                        i = 10;
-                        //System.out.print(BD[bd[j][0]][4]);
-                        //System.out.print(" - ");
-                        //System.out.print(CP[k - 1][0]);
-                        //System.out.print(" - ");
-                        //System.out.print(CP[k - 1][1]);
-                        //System.out.print(" - ");
-                        //System.out.println(k - 1);
-                    }
-                }
-                else {
-                    n = 1;
-                }
 
-            }  
+                    i = 10; 
+
+                    for (int l = 0; l < 10; l ++){
+
+                        if (((Double.valueOf(BD[bd[j][0]-bd[j][1]-l][4]) > 5.2) & (Double.valueOf(BD[bd[j][0]-bd[j][1]-l][4]) < 6))){
+                                
+                            n = n + 1;
+        
+                        }
+        
+                        if (CP[k - z][0] == (Double.valueOf(BD[bd[j][0]-bd[j][1]-l][7])) || n > 1){
+
+                            l = 10;
+                            CP[k][0] = bd[j][0];
+                            CP[k][1] = bd[j][1];  
+                            k = k + 1;
+                            z = 1;
+                        
+                            //System.out.print(BD[bd[j][0]][7]);
+                            //System.out.print(bd[j][0]);
+                            //System.out.print(" - ");
+                            System.out.print(CP[k - 1][0]);
+                            System.out.print(" - ");
+                            System.out.print(CP[k - 1][1]);
+                            System.out.print(" - ");
+                            System.out.println(k - 1);
+        
+                        }
+
+                    }
+
+                }
+                
+            }                       
             
         }
 
